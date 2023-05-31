@@ -6,76 +6,86 @@
  * @stop: stopping address
  * @except: except address
  *
- * Return: number bytes printed
+ * Return: number of bytes printed
  */
 int print_from_to(char *start, char *stop, char *except)
 {
 	int sum = 0;
 
-	while (start != except)
+	while (start != stop && *start != '\0' && start != except)
 	{
-		if (start != except)
-			sum += _putchar(*start) ;
+		sum += _putchar(*start);
 		start++;
 	}
-	return (sum) ;
+
+	return (sum);
 }
 
 /**
  * print_rev - prints string in reverse
- * @ap: string
+ * @ap: va_list containing the string
  * @params: the parameters struct
  *
- * Return: number bytes printed
+ * Return: number of bytes printed
  */
 int print_rev(va_list ap, params_t *params)
 {
-	int len, sum = 0;
+	int sum = 0;
 	char *str = va_arg(ap, char *);
+
 	(void)params;
-	
-	if (str)
+
+	if (str != NULL)
 	{
-		for (len = 0; *str; str++)
+		int len = 0;
+
+		while (str[len] != '\0')
+		{
 			len++;
-		str--;
-		for (; len > 0; len--, str--)
-			sum += _putchar(*str);
+		}
+
+		for (int i = len - 1; i >= 0; i--)
+		{
+			sum += _putchar(str[i]);
+		}
 	}
-	return (sum) ;
+
+	return (sum);
 }
 
 /**
  * print_rot13 - prints string in rot13
- * @ap: string
+ * @ap: va_list containing the string
  * @params: the parameters struct
  *
- * Return: number bytes printed
+ * Return: number of bytes printed
  */
 int print_rot13(va_list ap, params_t *params)
 {
-	int i, index;
 	int count = 0;
-	char arr[] =
-		"NOPORSTUVWXYZABCDEFGHIJKLM    nopqrstuvwxyzabcdefghijklm";
-	 char *a = va_arg(ap, char *) ;
-	 (void)params;
+	char *str = va_arg(ap, char *);
 
-	 i = 0;
-	 index = 0;
-	 while (a[i])
-	 {
-		 if ((a[i] >= 'A' && a[i] <= 'Z')
-				 || (a[i] >= 'a' && a[i] <= 'z'))
-		 {
-			 index = a[i] - 65;
-			 count += _putchar(arr[index]);
-		 }
-		 else
-			 count += _putchar(a[i]);
-		 i++;
-	 }
-	 return (count);
+	(void)params;
+
+	if (str != NULL)
+	{
+		char arr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+		for (int i = 0; str[i] != '\0'; i++)
+		{
+			if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+			{
+				int index = str[i] - (str[i] >= 'a' ? 'a' : 'A');
+
+				count += _putchar(arr[index]);
+
+			}
+			else
+			{
+				count += _putchar(str[i]);
+			}
+		}
+	}
+
+	return (count);
 }
-					
-
