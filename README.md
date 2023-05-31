@@ -3,3 +3,4 @@ main.h
 params.c
 _put.c
 specifier.c
+string_fields.c
