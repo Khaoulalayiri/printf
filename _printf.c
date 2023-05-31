@@ -83,13 +83,3 @@ char *handle_specifier(const char *format, params_t *params, va_list ap)
 }
 
 /* Rest of the code remains the same */
-
-
-
-
-
-
-
-
-
-
