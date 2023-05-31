@@ -7,7 +7,7 @@
  *
  * Return: On success 1 is returned.
  *         On error, -1 is returned, and errno is set appropriately.
- */
+ **/
 int _putchar(int c)
 {
 	static int i;
