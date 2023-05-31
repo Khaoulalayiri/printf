@@ -110,3 +110,14 @@ int print_number_left_shift(char *str, params_t *params)
 {
 	unsigned int n
 
+
+
+
+
+
+
+
+
+
+
+
