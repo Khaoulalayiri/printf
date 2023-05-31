@@ -10,8 +10,3 @@ number.c
 print_number.c
 convert_number.c
 print_functions.c
-
-
-
-
-
