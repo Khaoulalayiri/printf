@@ -1,0 +1,35 @@
+/**
+ * handle_length_modifier - handles the length modifier field in the format specifier
+ * @format: the format string
+ * @params: the parameter struct
+ *
+ * Return: pointer to the next character after handling the length modifier field
+ */
+const char *handle_length_modifier(const char *format, params_t *params)
+{
+    if (*format == 'h' || *format == 'l')
+    {
+        params->length_modifier = *format;
+
+        if (*(format + 1) == *format)
+        {
+            params->length_modifier = (*format == 'h') ? 'H' : 'L';
+            format++;
+        }
+        else if (*(format + 1) == 'h' || *(format + 1) == 'l')
+        {
+            params->length_modifier = 'I';
+            format++;
+        }
+    }
+    else if (*format == 'L')
+    {
+        params->length_modifier = 'L';
+    }
+    else
+    {
+        params->length_modifier = '\0';
+    }
+
+    return format + 1;
+}

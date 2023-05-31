@@ -1,0 +1,37 @@
+/**
+ * handle_precision - handles the precision field in the format specifier
+ * @format: the format string
+ * @params: the parameter struct
+ * @ap: the va_list
+ *
+ * Return: pointer to the next character after handling the precision field
+ */
+const char *handle_precision(const char *format, params_t *params, va_list ap)
+{
+    if (*format == '.')
+    {
+        format++;
+
+        if (*format == '*')
+        {
+            int precision = va_arg(ap, int);
+            params->precision = (precision < 0) ? -1 : precision;
+            format++;
+        }
+        else
+        {
+            params->precision = 0;
+            while (isdigit(*format))
+            {
+                params->precision = params->precision * 10 + (*format - '0');
+                format++;
+            }
+        }
+    }
+    else
+    {
+        params->precision = -1;
+    }
+
+    return format;
+}
