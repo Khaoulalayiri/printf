@@ -2,12 +2,12 @@
 #include <unistd.h> /* Added for write() function */
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1 is returned.
- *         On error, -1 is returned, and errno is set appropriately.
- **/
+* _putchar - writes the character c to stdout
+* @c: The character to print
+*
+* Return: On success 1 is returned.
+*         On error, -1 is returned, and errno is set appropriately.
+**/
 int _putchar(int c)
 {
 	static int i;
@@ -25,11 +25,11 @@ int _putchar(int c)
 }
 
 /**
- * _puts - prints a string with a newline
- * @str: The string to print
- *
- * Return: void
- */
+* _puts - prints a string with a newline
+* @str: The string to print
+* 
+* Return: void
+*/
 void _puts(char *str)
 {
 	while (*str != '\0')
