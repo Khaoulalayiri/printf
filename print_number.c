@@ -88,7 +88,7 @@ int print_number_right_shift(char *str, params_t *params)
 		n += putchar(' ');
 	while (i++ < params->width)
 		n += putchar(pad_char);
-	if (neg && putchar == ' ')
+	if (neg && putchar == ' ');
 		n += putchar('-');
 	if (params->plus_flag && !neg2 && pad_char == ' ' && !params->unsign)
 		n += putchar('+');
