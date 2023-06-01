@@ -68,10 +68,14 @@ int print_string(va_list ap, params_t *params)
     if (params->minus_flag)
     {
         if (params->precision != UINT_MAX)
+        {
             for (i = 0; i < pad; i++)
                 sum += _putchar(*str++);
+        }
         else
+        {
             sum += _puts(str);
+        }
     }
 
     while (j++ < params->width)
@@ -80,10 +84,14 @@ int print_string(va_list ap, params_t *params)
     if (!params->minus_flag)
     {
         if (params->precision != UINT_MAX)
+        {
             for (i = 0; i < pad; i++)
                 sum += _putchar(*str++);
+        }
         else
+        {
             sum += _puts(str);
+        }
     }
 
     return (sum);
@@ -109,7 +117,7 @@ int print_percent(va_list ap, params_t *params)
  *
  * Return: number of characters printed
  */
-int _puts(char *str)
+int _puts(const char *str)
 {
     int count = 0;
 
@@ -123,4 +131,3 @@ int _puts(char *str)
 
     return (count);
 }
-

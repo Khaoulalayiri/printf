@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 
         if (*p != '%')
         {
-            sum += _putchar(*p);
+            sum += putchar(*p);
             continue;
         }
 
@@ -45,8 +45,7 @@ int _printf(const char *format, ...)
             p++;
 
         if (!get_specifier(p))
-            sum += print_rev(start, p,
-                            params.l_modifier || params.h_modifier ? p - 1 : 0);
+            sum += print_rev(ap, &params); // Modified this line
         else
             sum += get_print_func(p, ap, &params);
     }
