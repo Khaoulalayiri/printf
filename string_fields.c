@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
 * get_width - gets the width from the format string

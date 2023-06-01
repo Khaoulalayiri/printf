@@ -10,18 +10,18 @@
 **/
 int _putchar(int c)
 {
-	static int i;
-	static char buf[OUTPUT_BUF_SIZE];
+        static int i;
+        static char buf[OUTPUT_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
-	{
-		write(1, buf, i);
-		i = 0;
-	}
+        if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
+        {
+                write(1, buf, i);
+                i = 0;
+        }
 
-	buf[i++] = c;
+        buf[i++] = c;
 
-	return (1);
+        return (1);
 }
 
 /**
@@ -32,11 +32,10 @@ int _putchar(int c)
 */
 void _puts(char *str)
 {
-	while (*str != '\0')
-	{
-		_putchar(*str);
-		str++;
-	}
-
-	_putchar('\n');
+        while (*str != '\0')
+        {
+                _putchar(*str);
+                str++;
+        }
+        _putchar('\n');
 }
