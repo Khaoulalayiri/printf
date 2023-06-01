@@ -74,23 +74,23 @@ int print_string(va_list ap, params_t *params)
         }
         else
         {
-            sum += _puts(str);
+            sum += puts(str);
         }
     }
 
     while (j++ < params->width)
-        sum += _putchar(pad_char);
+        sum += putchar(pad_char);
 
     if (!params->minus_flag)
     {
         if (params->precision != UINT_MAX)
         {
             for (i = 0; i < pad; i++)
-                sum += _putchar(*str++);
+                sum += putchar(*str++);
         }
         else
         {
-            sum += _puts(str);
+            sum += puts(str);
         }
     }
 
@@ -108,7 +108,7 @@ int print_percent(va_list ap, params_t *params)
 {
     (void)ap;
     (void)params;
-    return (_putchar('%'));
+    return (putchar('%'));
 }
 
 /**
@@ -123,7 +123,7 @@ int _puts(const char *str)
 
     while (*str != '\0')
     {
-        if (_putchar(*str) < 0)
+        if (putchar(*str) < 0)
             return (-1);
         count++;
         str++;
